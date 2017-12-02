@@ -36,12 +36,12 @@ the circular list. The list has an even number of elements. For example:
 
 def solve(captcha, part2=False):
     i = int(len(captcha) / 2) if part2 else 1
-    next_digit_comparisons = zip(captcha, captcha[i:] + captcha[:i])
-    return sum([int(d) for d, d2 in next_digit_comparisons if d == d2])
+    digit_comparisons = zip(captcha, captcha[i:] + captcha[:i])
+    return sum([int(d) for d, d2 in digit_comparisons if d == d2])
 
 
 if __name__ == "__main__":
-    with open("captcha_input.txt", "r") as f:
+    with open("puzzle_input.txt", "r") as f:
         puzzle_input = f.read()
 
     print(solve(puzzle_input))
